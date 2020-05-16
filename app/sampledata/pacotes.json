@@ -1,0 +1,40 @@
+{
+  "food": [
+    {
+      "food_name": "01 - X-Salada",
+      "imagem": "@drawable/x_salada",
+      "description_inicial": "Pão hamburguer, hamburguer, queijo, alface, maionese, tomate",
+      "price": "R$ 20,99"
+    },
+    {
+      "food_name": "02 - X-Burger",
+      "imagem": "@drawable/double_cheeseburger",
+      "description_inicial": "Pão hamburguer, hamburguer, queijo",
+      "price": "R$ 25,50"
+    },
+    {
+      "food_name": "03 - X - Bacon",
+      "imagem": "@drawable/x_bacon",
+      "description_inicial": "Pão hamburguer, hamburguer, queijo, bacon, alface, maionese",
+      "price": "R$ 28,20"
+    },
+    {
+      "food_name": "04 - X - Egg",
+      "imagem": "@drawable/x_egg",
+      "description_inicial": "Pão hamburguer, hamburguer, queijo, ovo, alface, maionese, tomate",
+      "price": "R$ 22,55"
+    },
+    {
+      "food_name": "05 - Big Burger",
+      "imagem": "@drawable/big_burguer",
+      "description_inicial": "Pão hamburguer, hamburguer, creme de milho, queijo, bacon",
+      "price": "R$ 30,99"
+    },
+    {
+      "food_name": "06 - Especial",
+      "imagem": "@drawable/burguer_especial",
+      "description_inicial": "Pão hamburguer, 2 hamburguers, queijo, tomate, alface, maionese",
+      "price": "R$ 35,90"
+    }
+  ]
+}

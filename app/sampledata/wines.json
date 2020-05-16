@@ -1,0 +1,22 @@
+{
+  "food": [
+    {
+      "food_name": "01 - Pergola Suave 750ml",
+      "imagem": "@drawable/pergola_bord_suave",
+      "description_inicial": "Pergola Suave 750ml",
+      "price": "R$ 25,99"
+    },
+    {
+      "food_name": "02 - Vinho Aurora 750ml",
+      "imagem": "@drawable/vinho_aurora_reserva_merlot",
+      "description_inicial": "Vinho Aurora Reserva Merlot 750ml",
+      "price": "R$ 32,50"
+    },
+    {
+      "food_name": "03 - Vinho Confidencial 750ml",
+      "imagem": "@drawable/vinho_confidencial_tto_750ml",
+      "description_inicial": "Vinho Confidencial 750ml",
+      "price": "R$ 28,20"
+    }
+  ]
+}

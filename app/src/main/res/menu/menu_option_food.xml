@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/lanches"
+        android:title="@string/lanches" >
+
+    </item>
+    <item android:id="@+id/bebidas"
+        android:title="@string/bebidas" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/refrigerante"
+                android:title="@string/refrigerante" />
+            <item android:id="@+id/vinho"
+                android:title="@string/vinho" />
+        </menu>
+    </item>
+   </menu>

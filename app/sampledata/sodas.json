@@ -1,0 +1,22 @@
+{
+  "food": [
+    {
+      "food_name": "01 - Coca-Cola 2L",
+      "imagem": "@drawable/coca_2l",
+      "description_inicial": "Coca-Cola 2 Litros",
+      "price": "R$ 11,99"
+    },
+    {
+      "food_name": "02 - Fanta Guarana 2L",
+      "imagem": "@drawable/fanta_gua",
+      "description_inicial": "Fanta Guarana 2 Litros",
+      "price": "R$ 8,50"
+    },
+    {
+      "food_name": "03 - Fanta Laranja 2L",
+      "imagem": "@drawable/fanta_laranja",
+      "description_inicial": "Fanta Laranja 2 Litros",
+      "price": "R$ 28,20"
+    }
+  ]
+}
