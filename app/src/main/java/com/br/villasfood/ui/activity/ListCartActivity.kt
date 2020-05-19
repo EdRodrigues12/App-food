@@ -2,6 +2,7 @@ package com.br.villasfood.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,8 @@ class ListCartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart_itens)
         val textView: TextView = findViewById(R.id.itens_carrinho)
         textView.text = "Carrinho vazio"
+        val buttonView: TextView = findViewById(R.id.resumo_food_botao_enviar_carrinho)
+        buttonView.visibility = View.GONE
         configuraRecyclerView()
         buscaNoticias()
     }
@@ -49,6 +52,8 @@ class ListCartActivity : AppCompatActivity() {
                 if (!resource.dado.isNullOrEmpty()) {
                     val textView: TextView = findViewById(R.id.itens_carrinho)
                     textView.text = getString(R.string.itens_cart)
+                    val buttonView: TextView = findViewById(R.id.resumo_food_botao_enviar_carrinho)
+                    buttonView.visibility = View.VISIBLE
                     buttonConfig(resource.dado)
                 }
             }
