@@ -3,15 +3,14 @@ package com.br.villasfood.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.br.villasfood.R
-import com.br.villasfood.model.Food
-import com.br.villasfood.ui.activity.ORDER_FOOD_ID
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.activity_finish_order.*
+import java.math.BigDecimal
 
 class FinishOrderActivity: AppCompatActivity() {
 
     private val orderFood: Boolean by lazy {
-        intent.hasExtra(ORDER_FOOD_ID)
+        intent.hasExtra(ORDER_ID)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +21,12 @@ class FinishOrderActivity: AppCompatActivity() {
 
     private fun buildOrder() {
         if(orderFood){
-            val food: Food = intent.getSerializableExtra(ORDER_FOOD_ID) as Food
-            fillText(food)
+            val finalPrice: BigDecimal = intent.getSerializableExtra(ORDER_ID) as BigDecimal
+            fillText(finalPrice)
         }
     }
 
-    private fun fillText(food: Food) {
-        pagamento_preco_pacote.text = ResourceUtil.formatBrazilianPrice(food.price)
+    private fun fillText(food: BigDecimal) {
+        pagamento_preco_pacote.text = ResourceUtil.formatBrazilianPrice(food)
     }
 }

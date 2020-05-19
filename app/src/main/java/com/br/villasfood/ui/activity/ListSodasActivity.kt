@@ -1,11 +1,12 @@
 package com.br.villasfood.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.villasfood.R
-import com.br.villasfood.dao.SodasDAO
+import com.br.villasfood.database.dao.SodasDAO
 import com.br.villasfood.model.Sodas
 import com.br.villasfood.ui.adapter.recyclerview.ListSodasAdapter
 import kotlinx.android.synthetic.main.activity_list_food.*
@@ -27,6 +28,16 @@ class ListSodasActivity: AppCompatActivity() {
         val divisor = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         lista_pacotes_listview.addItemDecoration(divisor)
         lista_pacotes_listview.adapter = adapter
-        //configAdapter()
+        configAdapter()
+    }
+
+    private fun configAdapter() {
+        adapter.quandoItemClicado = this::abreVisualizadorNoticia
+    }
+
+    private fun abreVisualizadorNoticia(it: Sodas) {
+        val intent = Intent(this, SodasResumeActivity::class.java)
+        intent.putExtra(SODAS_ID, it)
+        startActivity(intent)
     }
 }

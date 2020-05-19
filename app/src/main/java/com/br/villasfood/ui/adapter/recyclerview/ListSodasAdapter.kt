@@ -55,11 +55,11 @@ class ListSodasAdapter(private val context: Context,
             this.sodas = sodas
             val imagem: ImageView = itemView.sodas_imagem
             val drawableImagemPacote: Drawable? = ResourceUtil
-                .devolveDrawable(context, sodas.image)
+                .devolveDrawable(context, sodas.sodasImage)
             imagem.setImageDrawable(drawableImagemPacote)
             itemView.item_pacote_local.text = sodas.sodas_name
-            itemView.item_sodas_description.text = sodas.description
-            itemView.item_pacote_preco.text = ResourceUtil.formatBrazilianPrice(sodas.price)
+            itemView.item_sodas_description.text = sodas.sodasDescription
+            itemView.item_pacote_preco.text = ResourceUtil.formatBrazilianPrice(sodas.sodasPrice)
 
         }
 

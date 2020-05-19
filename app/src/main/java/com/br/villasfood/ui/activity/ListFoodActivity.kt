@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.br.villasfood.dao.FoodDao
+import com.br.villasfood.database.dao.FoodDao
 import com.br.villasfood.R
 import com.br.villasfood.model.Food
 import com.br.villasfood.ui.adapter.recyclerview.ListFoodAdapter
@@ -38,7 +38,7 @@ class ListFoodActivity : AppCompatActivity() {
 
     private fun abreVisualizadorNoticia(it: Food) {
         val intent = Intent(this, FoodResumeActivity::class.java)
-        intent.putExtra(ORDER_FOOD_ID, it)
+        intent.putExtra(FOOD_ID, it)
         startActivity(intent)
     }
 }

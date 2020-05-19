@@ -8,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import com.br.villasfood.model.MenuOption
+import com.br.villasfood.ui.activity.ListCartActivity
 import com.br.villasfood.ui.activity.ListFoodActivity
 import com.br.villasfood.ui.activity.ListSodasActivity
 import com.br.villasfood.ui.activity.ListWineActivity
@@ -24,9 +25,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        val context = this
+        context.deleteDatabase("villas.db")
         configRecyclerView()
     }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        val context = this
+//        context.deleteDatabase("villas.db")
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
@@ -43,9 +51,11 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-//            R.id.bebidas -> {
-//                true
-//            }
+            R.id.cart -> {
+                val intent = Intent(this, ListCartActivity::class.java)
+                startActivity(intent)
+                true
+            }
             R.id.refrigerante -> {
                 val intent = Intent(this, ListSodasActivity::class.java)
                 startActivity(intent)

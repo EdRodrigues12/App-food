@@ -55,11 +55,11 @@ class ListWineAdapter (private val context: Context,
             this.wine = wine
             val imagem: ImageView = itemView.wine_imagem
             val drawableImagemPacote: Drawable? = ResourceUtil
-                .devolveDrawable(context, wine.image)
+                .devolveDrawable(context, wine.wineImage)
             imagem.setImageDrawable(drawableImagemPacote)
             itemView.item_pacote_local.text = wine.wine_name
-            itemView.item_wine_description.text = wine.description
-            itemView.item_pacote_preco.text = ResourceUtil.formatBrazilianPrice(wine.price)
+            itemView.item_wine_description.text = wine.wineDescription
+            itemView.item_pacote_preco.text = ResourceUtil.formatBrazilianPrice(wine.winePrice)
 
         }
 

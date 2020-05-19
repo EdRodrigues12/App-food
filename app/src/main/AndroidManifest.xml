@@ -8,8 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".AppApplication">
+        <activity android:name=".ui.activity.ListCartActivity"/>
         <activity android:name=".ui.activity.FoodResumeActivity"/>
+        <activity android:name=".ui.activity.WineResumeActivity"/>
+        <activity android:name=".ui.activity.SodasResumeActivity"/>
         <activity android:name=".ui.activity.ListWineActivity"/>
         <activity android:name=".ui.activity.ListSodasActivity"/>
         <activity android:name=".ui.activity.FinishOrderActivity"/>

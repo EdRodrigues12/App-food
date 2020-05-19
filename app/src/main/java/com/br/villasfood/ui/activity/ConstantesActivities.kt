@@ -1,3 +1,6 @@
 package com.br.villasfood.ui.activity
 
-const val ORDER_FOOD_ID = "orderId"
+const val FOOD_ID = "foodId"
+const val WINE_ID = "wineId"
+const val SODAS_ID = "sodasId"
+const val ORDER_ID = "orderId"

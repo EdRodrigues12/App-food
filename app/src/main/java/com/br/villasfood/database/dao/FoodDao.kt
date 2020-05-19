@@ -1,8 +1,6 @@
-package com.br.villasfood.dao
+package com.br.villasfood.database.dao
 
 import com.br.villasfood.model.Food
-import com.google.gson.Gson
-import org.json.JSONArray
 import java.math.BigDecimal
 import java.util.*
 

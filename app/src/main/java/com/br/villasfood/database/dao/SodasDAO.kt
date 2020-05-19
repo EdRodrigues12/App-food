@@ -1,4 +1,4 @@
-package com.br.villasfood.dao
+package com.br.villasfood.database.dao
 
 import com.br.villasfood.model.Sodas
 import java.math.BigDecimal

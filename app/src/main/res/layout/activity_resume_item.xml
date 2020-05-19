@@ -76,12 +76,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/resumo_pacote_botao_realiza_pagamento"
+        android:id="@+id/resumo_food_botao_enviar_carrinho"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/botao_redondo_laranja"
-        android:text="@string/realizar_pedido"
+        android:text="@string/send_car"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

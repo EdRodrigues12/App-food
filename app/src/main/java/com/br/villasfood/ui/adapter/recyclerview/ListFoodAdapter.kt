@@ -55,11 +55,11 @@ class ListFoodAdapter(private val context: Context,
             this.food = food
             val imagem: ImageView = itemView.food_imagem
             val drawableImagemPacote: Drawable? = ResourceUtil
-                .devolveDrawable(context, food.image)
+                .devolveDrawable(context, food.food_image)
             imagem.setImageDrawable(drawableImagemPacote)
             itemView.item_pacote_local.text = food.food_name
-            itemView.item_food_description.text = food.description
-            itemView.item_pacote_preco.text = ResourceUtil.formatBrazilianPrice(food.price)
+            itemView.item_food_description.text = food.food_description
+            itemView.item_pacote_preco.text = ResourceUtil.formatBrazilianPrice(food.foodPrice)
 
         }
 

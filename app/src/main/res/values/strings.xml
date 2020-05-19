@@ -2,6 +2,7 @@
     <string name="app_name">Villas Food</string>
     <string name="name_fast_food">Food Gourmet Villa\'s</string>
     <string name="foods">Lanches</string>
+    <string name="cart">Carrinho</string>
     <string name="sodas">Refrigerantes</string>
     <string name="wine">Vinhos</string>
     <string name="address">Rua Passa a rua bruno, 111</string>
@@ -29,4 +30,6 @@
     <string name="lanches">Lanches</string>
     <string name="refrigerante">Refrigerantes</string>
     <string name="vinho">Vinhos</string>
+    <string name="send_car">Enviar para carrinho</string>
+    <string name="itens_cart">Itens do seu carrinho</string>
 </resources>
