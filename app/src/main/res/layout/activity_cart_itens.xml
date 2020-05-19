@@ -85,7 +85,7 @@
         android:layout_margin="8dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/botao_redondo_laranja"
-        android:text="@string/finalizar_compra"
+        android:text="@string/realizar_compra"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
