@@ -2,15 +2,15 @@ package com.br.villasfood.ui.activity.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.br.villasfood.model.Itens
-import com.br.villasfood.repository.ItemRepository
-import com.br.villasfood.repository.Resource
+import com.br.data.repository.ItemCartRepositoryImpl
+import com.br.domain.entity.Itens
+import com.br.domain.repository.Resource
 
 class SaveItemViewModel(
-    private val repository: ItemRepository
+    private val repository: ItemCartRepositoryImpl
 ) : ViewModel() {
 
-    fun salva(item: Itens): LiveData<Resource<Void?>> {
+   fun salva(item: com.br.domain.entity.Itens): LiveData<com.br.domain.repository.Resource<Void?>> {
 
             return repository.salva(item)
     }

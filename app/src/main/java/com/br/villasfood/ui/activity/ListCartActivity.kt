@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.villasfood.R
-import com.br.villasfood.model.Itens
 import com.br.villasfood.ui.activity.viewmodel.ListCartViewModel
 import com.br.villasfood.ui.adapter.recyclerview.ListCartAdapter
 import kotlinx.android.synthetic.main.activity_cart_itens.*
@@ -18,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_cart_itens.resumo_food_botao_envi
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.math.BigDecimal
 
-private const val MENSAGEM_FALHA_CARREGAR_NOTICIAS = "Não foi possível carregar o carrinho"
+private const val MENSAGEM_FALHA_CARREGAR_CARRINHO = "Não foi possível carregar o carrinho"
 
 class ListCartActivity : AppCompatActivity() {
 
@@ -35,7 +34,7 @@ class ListCartActivity : AppCompatActivity() {
         val buttonView: TextView = findViewById(R.id.resumo_food_botao_enviar_carrinho)
         buttonView.visibility = View.GONE
         configuraRecyclerView()
-        buscaNoticias()
+        buscaItensCarrinho()
     }
 
     private fun configuraRecyclerView() {
@@ -45,7 +44,7 @@ class ListCartActivity : AppCompatActivity() {
 
     }
 
-    private fun buscaNoticias() {
+    private fun buscaItensCarrinho() {
         viewModel.buscaTodos().observe(this, Observer { resource ->
             resource.dado?.let {
                 adapter.atualiza(it)
@@ -54,16 +53,16 @@ class ListCartActivity : AppCompatActivity() {
                     textView.text = getString(R.string.itens_cart)
                     val buttonView: TextView = findViewById(R.id.resumo_food_botao_enviar_carrinho)
                     buttonView.visibility = View.VISIBLE
-                    buttonConfig(resource.dado)
+                    buttonConfig(resource.dado!!)
                 }
             }
             resource.erro?.let {
-                mostraErro(MENSAGEM_FALHA_CARREGAR_NOTICIAS)
+                mostraErro(MENSAGEM_FALHA_CARREGAR_CARRINHO)
             }
         })
     }
 
-    private fun buttonConfig(itens: List<Itens>) {
+    private fun buttonConfig(itens: List<com.br.domain.entity.Itens>) {
         val finalPrice = calcfinalPrice(itens)
         val buttonOrderPlace: Button = resumo_food_botao_enviar_carrinho
         buttonOrderPlace.setOnClickListener { placeOrder(finalPrice) }
@@ -76,7 +75,7 @@ class ListCartActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun calcfinalPrice(itens: List<Itens>): BigDecimal {
+    private fun calcfinalPrice(itens: List<com.br.domain.entity.Itens>): BigDecimal {
         var finalPrice = BigDecimal.ZERO
         for(item in itens){
           if(item.food != null) {

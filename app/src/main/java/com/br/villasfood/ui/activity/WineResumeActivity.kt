@@ -6,8 +6,8 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.br.villasfood.R
-import com.br.villasfood.model.Itens
-import com.br.villasfood.model.Wine
+import com.br.domain.entity.Itens
+import com.br.domain.entity.Wine
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.activity_resume_wine.*
@@ -31,13 +31,13 @@ class WineResumeActivity: AppCompatActivity() {
 
     private fun foodSelected() {
         if(orderWine){
-            val wine: Wine = intent.getSerializableExtra(WINE_ID) as Wine
+            val wine: com.br.domain.entity.Wine = intent.getSerializableExtra(WINE_ID) as com.br.domain.entity.Wine
             inicializeOrder(wine)
             buttonConfig(wine)
         }
     }
 
-    private fun inicializeOrder(wine: Wine) {
+    private fun inicializeOrder(wine: com.br.domain.entity.Wine) {
         val drawableImagemPacote: Drawable? = ResourceUtil
             .devolveDrawable(this, wine.wineImage)
         resumo_wine_imagem.setImageDrawable(drawableImagemPacote)
@@ -46,13 +46,13 @@ class WineResumeActivity: AppCompatActivity() {
         resumo_wine_preco.text = ResourceUtil.formatBrazilianPrice(wine.winePrice)
     }
 
-    private fun buttonConfig(wine: Wine) {
+    private fun buttonConfig(wine: com.br.domain.entity.Wine) {
         val buttonOrderPlace: Button  = resumo_wine_botao_enviar_carrinho
         buttonOrderPlace.setOnClickListener { sendCart(wine) }
 
     }
-    private fun sendCart(wine: Wine) {
-        val itens = Itens(0L, null, wine, null)
+    private fun sendCart(wine: com.br.domain.entity.Wine) {
+        val itens = com.br.domain.entity.Itens(0L, null, wine, null)
         viewModel.salva(itens).observe(this, Observer {
             if (it.erro == null) {
                 finish()

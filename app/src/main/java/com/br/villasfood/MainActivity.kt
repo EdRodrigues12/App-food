@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
-import com.br.villasfood.model.MenuOption
+import com.br.domain.entity.MenuOption
 import com.br.villasfood.ui.activity.ListCartActivity
 import com.br.villasfood.ui.activity.ListFoodActivity
 import com.br.villasfood.ui.activity.ListSodasActivity
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         adapter.quandoItemClicado = this::goToOption
     }
 
-    private fun goToOption(it: MenuOption) {
+    private fun goToOption(it: com.br.domain.entity.MenuOption) {
          when (it.name) {
             "Lanches" -> {
                 val intent = Intent(this, ListFoodActivity::class.java)

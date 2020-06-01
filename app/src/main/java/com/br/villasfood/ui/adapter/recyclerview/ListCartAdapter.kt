@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.br.villasfood.R
-import com.br.villasfood.model.Itens
+import com.br.domain.entity.Itens
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.cart_itens_detail.view.*
 
 class ListCartAdapter (
     private val context: Context,
-    private val itens: MutableList<Itens> = mutableListOf()
+    private val itens: MutableList<com.br.domain.entity.Itens> = mutableListOf()
 ) : RecyclerView.Adapter<ListCartAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -36,7 +36,7 @@ class ListCartAdapter (
         holder.vincula(item)
     }
 
-    fun atualiza(itens: List<Itens>) {
+    fun atualiza(itens: List<com.br.domain.entity.Itens>) {
         notifyItemRangeRemoved(0, this.itens.size)
         this.itens.clear()
         this.itens.addAll(itens)
@@ -46,9 +46,9 @@ class ListCartAdapter (
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        private lateinit var item: Itens
+        private lateinit var item: com.br.domain.entity.Itens
 
-        fun vincula(item: Itens) {
+        fun vincula(item: com.br.domain.entity.Itens) {
             this.item = item
             val imagem: ImageView = itemView.item_cart_imagem
             if(item.food != null) {

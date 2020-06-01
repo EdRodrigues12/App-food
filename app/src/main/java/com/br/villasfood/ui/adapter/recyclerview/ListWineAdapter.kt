@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.br.villasfood.R
-import com.br.villasfood.model.Wine
+import com.br.domain.entity.Wine
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.wine_detail.view.*
 
 class ListWineAdapter (private val context: Context,
-                       private val wines: MutableList<Wine> = mutableListOf(),
-                       var quandoItemClicado: (wines: Wine) -> Unit = {}
+                       private val wines: MutableList<com.br.domain.entity.Wine> = mutableListOf(),
+                       var quandoItemClicado: (wines: com.br.domain.entity.Wine) -> Unit = {}
 ) : RecyclerView.Adapter<ListWineAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -40,7 +40,7 @@ class ListWineAdapter (private val context: Context,
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        private lateinit var wine: Wine
+        private lateinit var wine: com.br.domain.entity.Wine
 
         init {
             itemView.setOnClickListener {
@@ -51,7 +51,7 @@ class ListWineAdapter (private val context: Context,
         }
 
         //@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        fun vincula(wine: Wine) {
+        fun vincula(wine: com.br.domain.entity.Wine) {
             this.wine = wine
             val imagem: ImageView = itemView.wine_imagem
             val drawableImagemPacote: Drawable? = ResourceUtil

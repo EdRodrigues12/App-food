@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.br.villasfood.R
-import com.br.villasfood.model.Sodas
+import com.br.domain.entity.Sodas
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.sodas_detail.view.*
 
 class ListSodasAdapter(private val context: Context,
-                       private val sodas: MutableList<Sodas> = mutableListOf(),
-                       var quandoItemClicado: (sodas: Sodas) -> Unit = {}
+                       private val sodas: MutableList<com.br.domain.entity.Sodas> = mutableListOf(),
+                       var quandoItemClicado: (sodas: com.br.domain.entity.Sodas) -> Unit = {}
 ) : RecyclerView.Adapter<ListSodasAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -40,7 +40,7 @@ class ListSodasAdapter(private val context: Context,
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        private lateinit var sodas: Sodas
+        private lateinit var sodas: com.br.domain.entity.Sodas
 
         init {
             itemView.setOnClickListener {
@@ -51,7 +51,7 @@ class ListSodasAdapter(private val context: Context,
         }
 
         //@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        fun vincula(sodas: Sodas) {
+        fun vincula(sodas: com.br.domain.entity.Sodas) {
             this.sodas = sodas
             val imagem: ImageView = itemView.sodas_imagem
             val drawableImagemPacote: Drawable? = ResourceUtil

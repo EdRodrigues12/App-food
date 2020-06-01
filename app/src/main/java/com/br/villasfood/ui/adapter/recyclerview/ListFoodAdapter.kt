@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.br.villasfood.R
-import com.br.villasfood.model.Food
+import com.br.domain.entity.Food
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.food_detail.view.*
 
 class ListFoodAdapter(private val context: Context,
-                      private val food: MutableList<Food> = mutableListOf(),
-                      var quandoItemClicado: (food: Food) -> Unit = {}
+                      private val food: MutableList<com.br.domain.entity.Food> = mutableListOf(),
+                      var quandoItemClicado: (food: com.br.domain.entity.Food) -> Unit = {}
 ) : RecyclerView.Adapter<ListFoodAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -40,7 +40,7 @@ class ListFoodAdapter(private val context: Context,
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        private lateinit var food: Food
+        private lateinit var food: com.br.domain.entity.Food
 
         init {
             itemView.setOnClickListener {
@@ -51,7 +51,7 @@ class ListFoodAdapter(private val context: Context,
         }
 
         //@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        fun vincula(food: Food) {
+        fun vincula(food: com.br.domain.entity.Food) {
             this.food = food
             val imagem: ImageView = itemView.food_imagem
             val drawableImagemPacote: Drawable? = ResourceUtil

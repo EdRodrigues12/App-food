@@ -6,8 +6,8 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.br.villasfood.R
-import com.br.villasfood.model.Food
-import com.br.villasfood.model.Itens
+import com.br.domain.entity.Food
+import com.br.domain.entity.Itens
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
 import com.br.villasfood.util.ResourceUtil
 import kotlinx.android.synthetic.main.activity_resume_item.*
@@ -32,13 +32,13 @@ class FoodResumeActivity: AppCompatActivity() {
 
     private fun foodSelected() {
         if(orderFood){
-            val food: Food = intent.getSerializableExtra(FOOD_ID) as Food
+            val food: com.br.domain.entity.Food = intent.getSerializableExtra(FOOD_ID) as com.br.domain.entity.Food
             inicializeOrder(food)
             buttonConfig(food)
         }
     }
 
-    private fun inicializeOrder(food: Food) {
+    private fun inicializeOrder(food: com.br.domain.entity.Food) {
         val drawableImagemPacote: Drawable? = ResourceUtil
             .devolveDrawable(this, food.food_image)
         resumo_food_imagem.setImageDrawable(drawableImagemPacote)
@@ -47,18 +47,18 @@ class FoodResumeActivity: AppCompatActivity() {
         resumo_pacote_preco.text = ResourceUtil.formatBrazilianPrice(food.foodPrice)
     }
 
-    private fun buttonConfig(food: Food) {
+    private fun buttonConfig(food: com.br.domain.entity.Food) {
         val buttonOrderPlace: Button  = resumo_food_botao_enviar_carrinho
         buttonOrderPlace.setOnClickListener { sendCart(food) }
 
     }
 
-    private fun sendCart(food: Food) {
+    private fun sendCart(food: com.br.domain.entity.Food) {
 //        val intent =  Intent(this, FinishOrderActivity::class.java )
 //        intent.putExtra(FOOD_ID, food)
 //        startActivity(intent)
 
-        val itens = Itens(0L, food, null, null)
+        val itens = com.br.domain.entity.Itens(0L, food, null, null)
         viewModel.salva(itens).observe(this, Observer {
             if (it.erro == null) {
                 finish()
