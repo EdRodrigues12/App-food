@@ -1,8 +1,9 @@
-package com.br.villasfood.util
+package com.br.villasfood.ui.databinding
 
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
+import androidx.databinding.BindingAdapter
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -17,13 +18,13 @@ private const val FORMATO_COM_ESPACO = "R$ "
 class ResourceUtil {
 
     companion object {
-        //@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         fun devolveDrawable(
             context: Context?,
             drawableEmTexto: String?
         ): Drawable? {
             val resources: Resources? = context?.resources
-            val idDoDrawable = resources?.getIdentifier(drawableEmTexto, DRAWABLE, context.packageName)
+            val idDoDrawable = resources?.getIdentifier(drawableEmTexto,
+                DRAWABLE, context.packageName)
 
             return resources?.getDrawable(idDoDrawable!!)
 
@@ -31,10 +32,16 @@ class ResourceUtil {
 
         fun formatBrazilianPrice(price: BigDecimal): String {
             val formatBrazilian: NumberFormat = DecimalFormat.getCurrencyInstance(
-                Locale(PORTUGUES, BRASIL))
+                Locale(
+                    PORTUGUES,
+                    BRASIL
+                ))
             return formatBrazilian
                 .format(price)
-                .replace(FORMATO_PADRAO, FORMATO_COM_ESPACO)
+                .replace(
+                    FORMATO_PADRAO,
+                    FORMATO_COM_ESPACO
+                )
         }
     }
 }

@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.br.villasfood.R
-import com.br.domain.entity.Sodas
-import com.br.villasfood.util.ResourceUtil
+import com.br.villasfood.ui.databinding.ResourceUtil
 import kotlinx.android.synthetic.main.sodas_detail.view.*
 
 class ListSodasAdapter(private val context: Context,

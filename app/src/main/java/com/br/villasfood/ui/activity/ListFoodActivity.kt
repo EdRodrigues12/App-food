@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.activity_list_food.*
 class ListFoodActivity : AppCompatActivity() {
 
     private val adapter by lazy {
-        val pacotes: List<com.br.domain.entity.Food> = com.br.data.db.dao.FoodDao.lista() as List<com.br.domain.entity.Food>
-        ListFoodAdapter(context = this, food = pacotes as MutableList<com.br.domain.entity.Food>)
+        val pacotes: List<Food> = FoodDao.lista() as List<Food>
+        ListFoodAdapter(context = this, food = pacotes as MutableList<Food>)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class ListFoodActivity : AppCompatActivity() {
         adapter.quandoItemClicado = this::abreVisualizadorNoticia
     }
 
-    private fun abreVisualizadorNoticia(it: com.br.domain.entity.Food) {
+    private fun abreVisualizadorNoticia(it: Food) {
         val intent = Intent(this, FoodResumeActivity::class.java)
         intent.putExtra(FOOD_ID, it)
         startActivity(intent)

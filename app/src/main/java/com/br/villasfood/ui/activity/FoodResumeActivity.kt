@@ -1,17 +1,16 @@
 package com.br.villasfood.ui.activity
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.br.villasfood.R
 import com.br.domain.entity.Food
-import com.br.domain.entity.Itens
+import com.br.villasfood.databinding.ActivityResumeItemBinding
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
-import com.br.villasfood.util.ResourceUtil
-import kotlinx.android.synthetic.main.activity_resume_item.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.math.BigDecimal
+import java.math.BigInteger
 
 
 private const val MENSAGEM_ERRO_SALVAR = "Não foi possível salvar notícia"
@@ -23,50 +22,32 @@ class FoodResumeActivity: AppCompatActivity() {
     }
 
     private val viewModel by viewModel<SaveItemViewModel>()
+    private lateinit var binding: ActivityResumeItemBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_resume_item)
-        foodSelected()
-    }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_resume_item)
+        if (orderFood) {
+            val food: Food = intent.getSerializableExtra(FOOD_ID) as Food
+            binding.food = food
+            binding.resumoFoodBotaoEnviarCarrinho.setOnClickListener {
+                sendCart(food)
+            }
 
-    private fun foodSelected() {
-        if(orderFood){
-            val food: com.br.domain.entity.Food = intent.getSerializableExtra(FOOD_ID) as com.br.domain.entity.Food
-            inicializeOrder(food)
-            buttonConfig(food)
+            binding.executePendingBindings()
         }
     }
 
-    private fun inicializeOrder(food: com.br.domain.entity.Food) {
-        val drawableImagemPacote: Drawable? = ResourceUtil
-            .devolveDrawable(this, food.food_image)
-        resumo_food_imagem.setImageDrawable(drawableImagemPacote)
-        resumo_food_name.text = food.food_name
-        resumo_food_description.text = food.food_description
-        resumo_pacote_preco.text = ResourceUtil.formatBrazilianPrice(food.foodPrice)
-    }
+        private fun sendCart(food: Food) {
 
-    private fun buttonConfig(food: com.br.domain.entity.Food) {
-        val buttonOrderPlace: Button  = resumo_food_botao_enviar_carrinho
-        buttonOrderPlace.setOnClickListener { sendCart(food) }
-
-    }
-
-    private fun sendCart(food: com.br.domain.entity.Food) {
-//        val intent =  Intent(this, FinishOrderActivity::class.java )
-//        intent.putExtra(FOOD_ID, food)
-//        startActivity(intent)
-
-        val itens = com.br.domain.entity.Itens(0L, food, null, null)
-        viewModel.salva(itens).observe(this, Observer {
-            if (it.erro == null) {
-                finish()
-            } else {
-                mostraErro(MENSAGEM_ERRO_SALVAR)
-            }
-        })
-    }
-
+            val itens = com.br.domain.entity.Itens(0L, food, null, null)
+            viewModel.salva(itens).observe(this, Observer {
+                if (it.erro == null) {
+                    finish()
+                } else {
+                    mostraErro(MENSAGEM_ERRO_SALVAR)
+                }
+            })
+        }
 }
 

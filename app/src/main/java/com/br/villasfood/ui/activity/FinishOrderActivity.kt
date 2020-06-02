@@ -3,7 +3,7 @@ package com.br.villasfood.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.br.villasfood.R
-import com.br.villasfood.util.ResourceUtil
+import com.br.villasfood.ui.databinding.ResourceUtil
 import kotlinx.android.synthetic.main.activity_finish_order.*
 import java.math.BigDecimal
 

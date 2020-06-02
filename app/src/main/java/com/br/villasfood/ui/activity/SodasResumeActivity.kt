@@ -6,10 +6,8 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.br.villasfood.R
-import com.br.domain.entity.Itens
-import com.br.domain.entity.Sodas
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
-import com.br.villasfood.util.ResourceUtil
+import com.br.villasfood.ui.databinding.ResourceUtil
 import kotlinx.android.synthetic.main.activity_resume_sodas.*
 import org.koin.android.viewmodel.ext.android.viewModel
 

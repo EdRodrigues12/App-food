@@ -9,6 +9,7 @@ import com.br.data.repository.ItemCartRepositoryImpl
 import com.br.domain.repository.ItemCartRepository
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
 import com.br.villasfood.ui.activity.viewmodel.ListCartViewModel
+import com.br.villasfood.ui.adapter.recyclerview.ListFoodAdapter
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -33,6 +34,9 @@ val appModules = module {
     }
     single<ShowItensLocalData> {
         ShowItensLocalDataImpl(get())
+    }
+    factory<ListFoodAdapter> {
+        ListFoodAdapter(get()) {}
     }
     viewModel<SaveItemViewModel> {
         SaveItemViewModel(get())

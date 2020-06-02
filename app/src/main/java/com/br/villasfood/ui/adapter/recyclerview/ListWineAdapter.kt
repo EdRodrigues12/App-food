@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.br.villasfood.R
-import com.br.domain.entity.Wine
-import com.br.villasfood.util.ResourceUtil
+import com.br.villasfood.ui.databinding.ResourceUtil
 import kotlinx.android.synthetic.main.wine_detail.view.*
 
 class ListWineAdapter (private val context: Context,
