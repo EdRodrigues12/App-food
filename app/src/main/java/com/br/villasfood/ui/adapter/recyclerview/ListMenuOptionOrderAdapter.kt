@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.br.domain.entity.MenuOption
 import com.br.villasfood.R
+import com.br.villasfood.databinding.MenuOptionOrderBinding
 import com.br.villasfood.ui.databinding.ResourceUtil
 import kotlinx.android.synthetic.main.menu_option_order.view.*
 import java.util.*
@@ -17,59 +20,57 @@ class ListMenuOptionOrderAdapter (private val context: Context,
 
 ) : RecyclerView.Adapter<ListMenuOptionOrderAdapter.ViewHolder>() {
 
-    val menus: MutableList<com.br.domain.entity.MenuOption> = lista() as MutableList<com.br.domain.entity.MenuOption>
+    val menus: MutableList<MenuOption> = lista() as MutableList<MenuOption>
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val viewCriada = LayoutInflater.from(context)
-            .inflate(
+        return ViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(context),
                 R.layout.menu_option_order,
-                parent, false
+                parent,
+                false
             )
-        return ViewHolder(viewCriada)
+        )
     }
 
     override fun getItemCount() = menus.size
 
-    //@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val menu = menus[position]
         holder.vincula(menu)
     }
 
-    fun lista(): List<com.br.domain.entity.MenuOption?>? {
-        return ArrayList<com.br.domain.entity.MenuOption>(
-            Arrays.asList<com.br.domain.entity.MenuOption>(
-                com.br.domain.entity.MenuOption("Lanches", "x_salada"),
-                com.br.domain.entity.MenuOption("Refrigerantes", "coca_2l"),
-                com.br.domain.entity.MenuOption("Vinhos", "pergola_bord_suave"),
-                com.br.domain.entity.MenuOption("Combos", "combo")
+    fun lista(): List<MenuOption?>? {
+        return ArrayList<MenuOption>(
+            Arrays.asList<MenuOption>(
+                MenuOption("Lanches", "x_salada"),
+                MenuOption("Refrigerantes", "coca_2l"),
+                MenuOption("Vinhos", "pergola_bord_suave"),
+                MenuOption("Combos", "combo")
             )
         )
     }
 
-    inner class ViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(private val viewDataBinding: MenuOptionOrderBinding) :
+        RecyclerView.ViewHolder(viewDataBinding.root), View.OnClickListener {
 
-        private lateinit var menu: com.br.domain.entity.MenuOption
+        private lateinit var menu: MenuOption
 
-        init {
-            itemView.setOnClickListener {
+        override fun onClick(view: View?) {
                 if (::menu.isInitialized) {
                     quandoItemClicado(menu)
                 }
             }
+
+        init {
+            viewDataBinding.clickMenu = this
         }
 
-        //@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        fun vincula(menu: com.br.domain.entity.MenuOption) {
+        fun vincula(menu: MenuOption) {
             this.menu = menu
-            val imagem: ImageView = itemView.food_imagem
-            val drawableImagemPacote: Drawable? = ResourceUtil
-                .devolveDrawable(context, menu.image)
-            imagem.setImageDrawable(drawableImagemPacote)
-            itemView.item_pacote_local.text = menu.name
+            viewDataBinding.menu = menu
 
         }
 

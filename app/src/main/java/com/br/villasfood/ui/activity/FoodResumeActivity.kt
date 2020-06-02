@@ -13,7 +13,7 @@ import java.math.BigDecimal
 import java.math.BigInteger
 
 
-private const val MENSAGEM_ERRO_SALVAR = "Não foi possível salvar notícia"
+private const val MENSAGEM_ERRO_SALVAR = "Não foi possível salvar"
 
 class FoodResumeActivity: AppCompatActivity() {
 

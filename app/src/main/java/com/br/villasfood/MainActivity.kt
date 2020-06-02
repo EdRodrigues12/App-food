@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         adapter.quandoItemClicado = this::goToOption
     }
 
-    private fun goToOption(it: com.br.domain.entity.MenuOption) {
+    private fun goToOption(it: MenuOption) {
          when (it.name) {
             "Lanches" -> {
                 val intent = Intent(this, ListFoodActivity::class.java)

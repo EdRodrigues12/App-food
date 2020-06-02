@@ -10,7 +10,7 @@ class ListCartViewModel (
     private val repository: ItemCartRepositoryImpl
 ) : ViewModel() {
 
-    fun buscaTodos() : LiveData<com.br.domain.repository.Resource<List<com.br.domain.entity.Itens>?>> {
+    fun buscaTodos() : LiveData<Resource<List<Itens>?>> {
         return repository.buscaTodos()
     }
 }
