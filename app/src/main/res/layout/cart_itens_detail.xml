@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.br.domain.entity.Itens" />
+    </data>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -24,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:scaleType="fitEnd"
+            app:carregaImagem="@{item.food != null ? item.food.food_image : item.wine != null ? item.wine.wineImage : item.sodas.sodasImage}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -39,6 +46,7 @@
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:text="@{item.food != null ? item.food.food_name : item.wine != null ? item.wine.wine_name : item.sodas.sodas_name}"
             app:layout_constraintEnd_toEndOf="@id/item_cart_imagem"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/item_cart_imagem"
@@ -54,6 +62,7 @@
             android:layout_marginBottom="8dp"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="20sp"
+            app:formatPrice="@{item.food != null ? item.food.foodPrice : item.wine != null ? item.wine.winePrice : item.sodas.sodasPrice}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/item_cart_local"
             app:layout_constraintTop_toBottomOf="@id/item_cart_local"
@@ -62,3 +71,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
+</layout>

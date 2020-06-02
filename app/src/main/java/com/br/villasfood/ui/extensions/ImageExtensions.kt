@@ -17,6 +17,5 @@ fun ImageView.carregaImagem(
     Glide.with(this)
         .load(resID)
         .error(imagemDeErro)
-        .centerCrop()
         .into(this)
 }
