@@ -1,18 +1,14 @@
-package com.br.villasfood.ui.adapter.recyclerview
+package com.br.villasfood.ui.activity
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.br.domain.entity.MenuOption
 import com.br.villasfood.R
 import com.br.villasfood.databinding.MenuOptionOrderBinding
-import com.br.villasfood.ui.databinding.ResourceUtil
-import kotlinx.android.synthetic.main.menu_option_order.view.*
 import java.util.*
 
 class ListMenuOptionOrderAdapter (private val context: Context,

@@ -8,11 +8,11 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import com.br.domain.entity.MenuOption
-import com.br.villasfood.ui.activity.ListCartActivity
-import com.br.villasfood.ui.activity.ListFoodActivity
-import com.br.villasfood.ui.activity.ListSodasActivity
-import com.br.villasfood.ui.activity.ListWineActivity
-import com.br.villasfood.ui.adapter.recyclerview.ListMenuOptionOrderAdapter
+import com.br.villasfood.ui.activity.cart.ListCartActivity
+import com.br.villasfood.ui.activity.food.ListFoodActivity
+import com.br.villasfood.ui.activity.sodas.ListSodasActivity
+import com.br.villasfood.ui.activity.wine.ListWineActivity
+import com.br.villasfood.ui.activity.ListMenuOptionOrderAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 

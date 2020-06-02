@@ -1,18 +1,14 @@
-package com.br.villasfood.ui.adapter.recyclerview
+package com.br.villasfood.ui.activity.wine
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.br.domain.entity.Wine
 import com.br.villasfood.R
 import com.br.villasfood.databinding.WineDetailBinding
-import com.br.villasfood.ui.databinding.ResourceUtil
-import kotlinx.android.synthetic.main.wine_detail.view.*
 
 class ListWineAdapter (private val context: Context,
                        private val wines: MutableList<Wine> = mutableListOf(),

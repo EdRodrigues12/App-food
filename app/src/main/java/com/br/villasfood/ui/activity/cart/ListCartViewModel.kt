@@ -1,4 +1,4 @@
-package com.br.villasfood.ui.activity.viewmodel
+package com.br.villasfood.ui.activity.cart
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

@@ -1,8 +1,6 @@
-package com.br.villasfood.ui.activity
+package com.br.villasfood.ui.activity.sodas
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -10,9 +8,9 @@ import com.br.domain.entity.Itens
 import com.br.domain.entity.Sodas
 import com.br.villasfood.R
 import com.br.villasfood.databinding.ActivityResumeSodasBinding
+import com.br.villasfood.ui.activity.SODAS_ID
+import com.br.villasfood.ui.activity.mostraErro
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
-import com.br.villasfood.ui.databinding.ResourceUtil
-import kotlinx.android.synthetic.main.activity_resume_sodas.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 private const val MENSAGEM_ERRO_SALVAR = "Não foi possível salvar"

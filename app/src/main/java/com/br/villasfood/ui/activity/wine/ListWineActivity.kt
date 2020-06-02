@@ -1,4 +1,4 @@
-package com.br.villasfood.ui.activity
+package com.br.villasfood.ui.activity.wine
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,20 +6,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.villasfood.R
-import com.br.data.db.dao.SodasDAO
-import com.br.domain.entity.Sodas
-import com.br.villasfood.ui.adapter.recyclerview.ListSodasAdapter
-import kotlinx.android.synthetic.main.activity_list_food.*
+import com.br.data.db.dao.WineDAO
+import com.br.domain.entity.Wine
+import com.br.villasfood.ui.activity.WINE_ID
+import kotlinx.android.synthetic.main.activity_list_wine.*
 
-class ListSodasActivity: AppCompatActivity() {
+class ListWineActivity: AppCompatActivity() {
 
     private val adapter by lazy {
-        val sodas: List<Sodas> = SodasDAO.lista() as List<Sodas>
-        ListSodasAdapter(context = this, sodas = sodas as MutableList<Sodas>)
+        val wines: List<Wine> = WineDAO.lista() as List<Wine>
+        ListWineAdapter(
+            context = this,
+            wines = wines as MutableList<Wine>
+        )
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_sodas)
+        setContentView(R.layout.activity_list_wine)
 
         configRecyclerView()
     }
@@ -35,9 +38,9 @@ class ListSodasActivity: AppCompatActivity() {
         adapter.quandoItemClicado = this::abreVisualizadorNoticia
     }
 
-    private fun abreVisualizadorNoticia(it: Sodas) {
-        val intent = Intent(this, SodasResumeActivity::class.java)
-        intent.putExtra(SODAS_ID, it)
+    private fun abreVisualizadorNoticia(it: Wine) {
+        val intent = Intent(this, WineResumeActivity::class.java)
+        intent.putExtra(WINE_ID, it)
         startActivity(intent)
     }
 }

@@ -1,4 +1,4 @@
-package com.br.villasfood.ui.activity
+package com.br.villasfood.ui.activity.cart
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.villasfood.R
-import com.br.villasfood.ui.activity.viewmodel.ListCartViewModel
-import com.br.villasfood.ui.adapter.recyclerview.ListCartAdapter
+import com.br.villasfood.ui.activity.order.FinishOrderActivity
+import com.br.villasfood.ui.activity.ORDER_ID
+import com.br.villasfood.ui.activity.mostraErro
 import kotlinx.android.synthetic.main.activity_cart_itens.*
 import kotlinx.android.synthetic.main.activity_cart_itens.resumo_food_botao_enviar_carrinho
 import org.koin.android.viewmodel.ext.android.viewModel

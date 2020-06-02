@@ -1,4 +1,4 @@
-package com.br.villasfood.ui.activity
+package com.br.villasfood.ui.activity.food
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,10 +7,10 @@ import androidx.lifecycle.Observer
 import com.br.villasfood.R
 import com.br.domain.entity.Food
 import com.br.villasfood.databinding.ActivityResumeItemBinding
+import com.br.villasfood.ui.activity.FOOD_ID
+import com.br.villasfood.ui.activity.mostraErro
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.math.BigDecimal
-import java.math.BigInteger
 
 
 private const val MENSAGEM_ERRO_SALVAR = "Não foi possível salvar"

@@ -8,8 +8,8 @@ import com.br.data.db.local.ShowItensLocalDataImpl
 import com.br.data.repository.ItemCartRepositoryImpl
 import com.br.domain.repository.ItemCartRepository
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
-import com.br.villasfood.ui.activity.viewmodel.ListCartViewModel
-import com.br.villasfood.ui.adapter.recyclerview.ListFoodAdapter
+import com.br.villasfood.ui.activity.cart.ListCartViewModel
+import com.br.villasfood.ui.activity.food.ListFoodAdapter
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

@@ -1,4 +1,4 @@
-package com.br.villasfood.ui.activity
+package com.br.villasfood.ui.activity.food
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,14 +10,16 @@ import com.br.data.db.dao.FoodDao
 import com.br.villasfood.R
 import com.br.domain.entity.Food
 import com.br.villasfood.databinding.ActivityListFoodBinding
-import com.br.villasfood.ui.adapter.recyclerview.ListFoodAdapter
-import kotlinx.android.synthetic.main.activity_list_food.*
+import com.br.villasfood.ui.activity.FOOD_ID
 
 class ListFoodActivity : AppCompatActivity() {
 
     private val adapter by lazy {
         val pacotes: List<Food> = FoodDao.lista() as List<Food>
-        ListFoodAdapter(context = this, food = pacotes as MutableList<Food>)
+        ListFoodAdapter(
+            context = this,
+            food = pacotes as MutableList<Food>
+        )
     }
 
     private lateinit var binding: ActivityListFoodBinding

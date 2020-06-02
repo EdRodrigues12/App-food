@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".AppApplication">
-        <activity android:name=".ui.activity.ListCartActivity"/>
-        <activity android:name=".ui.activity.FoodResumeActivity"/>
-        <activity android:name=".ui.activity.WineResumeActivity"/>
-        <activity android:name=".ui.activity.SodasResumeActivity"/>
-        <activity android:name=".ui.activity.ListWineActivity"/>
-        <activity android:name=".ui.activity.ListSodasActivity"/>
-        <activity android:name=".ui.activity.FinishOrderActivity"/>
-        <activity android:name=".ui.activity.ListFoodActivity"/>
+        <activity android:name=".ui.activity.cart.ListCartActivity"/>
+        <activity android:name=".ui.activity.food.FoodResumeActivity"/>
+        <activity android:name=".ui.activity.wine.WineResumeActivity"/>
+        <activity android:name=".ui.activity.sodas.SodasResumeActivity"/>
+        <activity android:name=".ui.activity.wine.ListWineActivity"/>
+        <activity android:name=".ui.activity.sodas.ListSodasActivity"/>
+        <activity android:name=".ui.activity.order.FinishOrderActivity"/>
+        <activity android:name=".ui.activity.food.ListFoodActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

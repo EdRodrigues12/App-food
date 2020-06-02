@@ -1,17 +1,15 @@
-package com.br.villasfood.ui.activity
+package com.br.villasfood.ui.activity.wine
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.br.domain.entity.Wine
 import com.br.villasfood.R
 import com.br.villasfood.databinding.ActivityResumeWineBinding
+import com.br.villasfood.ui.activity.WINE_ID
+import com.br.villasfood.ui.activity.mostraErro
 import com.br.villasfood.ui.activity.viewmodel.SaveItemViewModel
-import com.br.villasfood.ui.databinding.ResourceUtil
-import kotlinx.android.synthetic.main.activity_resume_wine.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 private const val MENSAGEM_ERRO_SALVAR = "Não foi possível salvar"
